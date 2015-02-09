@@ -168,7 +168,6 @@ INSTALLED_APPS = [
     'pagination',
     'profiles',
     'taggit',
-    'south',
     'djangosecure',
     'guardian',
     'django_gravatar',

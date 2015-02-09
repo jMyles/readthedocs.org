@@ -59,8 +59,10 @@ class Redirect(models.Model):
 
     def __unicode__(self):
         if self.redirect_type == 'prefix':
-            return _('Prefix Redirect: %s ->' % self.from_url)
+            u = _('Prefix Redirect: %s ->' % self.from_url)
         elif self.redirect_type == 'page':
-            return _('Page Redirect: %s -> %s' % (self.from_url, self.to_url))
+            u = _('Page Redirect: %s -> %s' % (self.from_url, self.to_url))
         else:
-            return _('Redirect: %s' % self.get_redirect_type_display())
+            u = _('Redirect: %s' % self.get_redirect_type_display())
+
+        return unicode(u)

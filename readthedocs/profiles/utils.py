@@ -9,7 +9,13 @@ from django import forms
 from django.conf import settings
 from django.db.models import get_model
 
-from django.contrib.auth.models import SiteProfileNotAvailable
+
+class SiteProfileNotAvailable(Exception):
+	'''
+	SiteProfileNotAvailable has been removed as of Django 1.7.
+	What shall we do?
+	'''
+    pass
 
 
 def get_profile_model():

@@ -18,6 +18,7 @@ class PrivacyTests(TestCase):
 
     def tearDown(self):
         tasks.update_docs = self.old_bd
+        tasks.update_docs.delay = self.delay_func
 
     def setUp(self):
         self.old_bd = tasks.update_docs
@@ -25,6 +26,7 @@ class PrivacyTests(TestCase):
         def mock(*args, **kwargs):
             pass
             #log.info("Mocking for great profit and speed.")
+        self.delay_func = tasks.update_docs.delay
         tasks.update_docs.delay = mock
 
     def _create_kong(self, privacy_level='private',

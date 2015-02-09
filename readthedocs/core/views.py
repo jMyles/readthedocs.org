@@ -469,7 +469,7 @@ def _serve_docs(request, project, version, filename, lang_slug=None,
         fullpath = os.path.join(basepath, filename)
         mimetype, encoding = mimetypes.guess_type(fullpath)
         mimetype = mimetype or 'application/octet-stream'
-        response = HttpResponse(mimetype=mimetype)
+        response = HttpResponse(content_type=mimetype)
         if encoding:
             response["Content-Encoding"] = encoding
         try:
